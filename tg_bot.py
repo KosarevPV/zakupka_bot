@@ -2,11 +2,11 @@ import asyncio
 import datetime
 import json
 
+
 from aiogram import Bot, Dispatcher, executor, types
 from aiogram.dispatcher.filters import Text
 from auth_data import token, user_id, user_kuz_id
 from main import get_data, get_str
-
 
 bot = Bot(token=token, parse_mode=types.ParseMode.HTML)
 dp = Dispatcher(bot)
@@ -43,8 +43,7 @@ async def get_fresh_lots(message: types.Message):
             if lot is not None:
                 await message.answer(lot)
     else:
-        await message.answer(
-            f"Новых лотов нет...Просмотренных лотов: {lot_counter}")
+        await message.answer(f"Новых лотов нет...Просмотренных лотов: {lot_counter}")
 
 
 async def lots_every_1_hours():

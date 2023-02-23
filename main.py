@@ -1,10 +1,13 @@
 import time
 import datetime
+import json
 from random import randint
+
 import requests
 from bs4 import BeautifulSoup
-import json
+
 from date_func import month_dict, weekday_dict
+from auth_data import url
 
 TEMPLATES = (
     ('инстр', 'обращ', 'отход'),
@@ -45,7 +48,7 @@ def get_data():
     fresh_lots = {}
     lot_counter = 0
     while True:
-        req = requests.get(f"https://goszakupki.by/tenders/posted?page={i}",
+        req = requests.get(f"{url}{i}",
                            headers=headers, verify=False)
 
         soup = BeautifulSoup(req.text, 'lxml')

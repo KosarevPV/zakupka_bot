@@ -2,3 +2,4 @@ pep8.txt
 auth_data.py
 current_lots.json
 first_lot.txt
+__pycache__/
